@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JQ22Siblings.html
+    </title>
+    <script src="../common/jquery/jquery-3.6.0.js"></script>
+    <script>
+        $(function(){
+            $('#btn1').click(function(){
+                $("li").css("backgroundColor","white");
+                /*
+                siblings() : 선택된 요소 이외의 형제 요소 전체를 선택한다.
+                    즉 여기서는 .third-item 이외 모든 형제 요소를 선택하며
+                    배경색을 변경한다.
+                */
+                $("li.third-item").siblings().css("backgroundColor","red");
+            });
+            $('#btn2').click(function(){
+                $("li").css("backgroundColor","white");
+                /*
+                next() : 선택된 요소 뒤에 하나의 요소만 선택한다.
+                    여기서는 '조통' 하나만 선택된다.
+                */
+                $("li.third-item").next().css("backgroundColor","red");
+            });
+            $('#btn3').click(function(){
+                $("li").css("backgroundColor","white");
+                /*
+                nextAll() : 선택된 뒤의 모든 요소를 선택한다.
+                    '조통~함순'까지 모두 선택된다.
+                */
+                $("li.third-item").nextAll().css("backgroundColor","red");
+            });
+            $('#btn4').click(function(){
+                $("li").css("backgroundColor","white");
+                /*
+                nextUntil(선택자) : 선택된 요소 뒤에있는 요소들중에 주어진
+                    선택자 앞부분까지만 선택한다.
+                    즉, third-item 뒤에서부터 here 앞까지만 선택한다.
+                    조통, 황보항만 선택된다. 
+                */
+                $("li.third-item").nextUntil('#here').css("backgroundColor","red");
+            });
+
+        });
+        /*
+        prev()
+        prevAll()
+        prevUntil()
+        : 위와 동일한 역할의 함수로 선택한 요소로 
+        */
+    </script>
+</head>
+<body>
+    <ul>
+        <li>임춘</li>
+        <li>오세재</li>
+        <li class="third-item">이인로(.third-item)</li>
+        <li>조통</li>
+        <li>황보항</li>
+        <li id="here">이담지(#here)</li>
+        <li>함순</li>
+    </ul>
+
+    <input type="button" value="siblings()" id="btn1">
+    <input type="button" value="next()" id="btn2">
+    <input type="button" value="nextAll()" id="btn3">
+    <input type="button" value="nextUntil(#here)" id="btn4">
+</body>
+</html>

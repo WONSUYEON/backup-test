@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JQ03Bind.html
+    </title>
+    <script src="../common/jquery/jquery-3.6.0.js"></script>
+    <script>
+        /*
+        bind() : 엘리먼트에 여러개의 이벤트를 부여할때 사용하는 함수
+        unbind() : 이벤트를 해제할때 사용하는 함수 
+        ※주로 메소드체인을 사용해서 여러개의 이벤트를 연결 할 수 있다.
+        */
+        $(document).ready(function(){
+            /*
+            div태그의 DOM을 얻어온 후 bind()함수로 이벤트를 부여한다.
+            */
+            $('#click_change')
+            .bind("mouseover", function(){//마우스를 올렸을때..
+                //JS의 함수와 속성을 이용해서 배경색 변경
+                document.getElementById("click_change")
+                    .style.backgroundColor="red";
+            })
+            .bind("mouseout", function(){//마우스를 내렸을때..
+                //jQuery의 get()함수를 통해 DOM을 얻어온 후 JS의 속성을 통해
+                //배경색을 변경
+               $('#click_change').get(0).style.backgroundColor="white";
+            })
+            .bind("click", function(){
+                /*
+                $('#click_change')를 통해 접근한 DOM을 그대로 사용할때 this를 쓸수있다.
+                */
+               alert($(this).text());
+            });
+        
+        //btnClick 버튼을 누르면 alert()가 뜬다.
+        $('#btnClick').click(function(){
+            //이벤트제거버튼을 누른후 다시 해당 버튼을 누르면 alert()가 뜨지 않는다.
+            alert('버튼 클릭됨');
+        });
+        //btnEventClear 버튼을 click하면 아래 내용이 실행된다.
+        $('#btnEventClear').bind('click', function(){
+            //btnClick 버튼에 부여되었던 click이벤트를 제거한다.
+            $('#btnClick').unbind('click');
+            alert('btnClick의 이벤트가 제거됨');
+        });
+    })
+    </script>
+    <style>
+        div{
+            width:500px; height:130px;
+            text-align:center; font-size:1.5em;
+            border:1px dotted black;
+        }
+        input{ width:200px; height:100px; margin-top:20px;}
+    </style>
+    
+</head>
+<body>
+        <h2>bind() 메소드</h2>	
+        <div id="click_change">
+            마우스를 over하면 red로 변하고 <br />
+            마우스를 out하면 white로 변하고 <br />
+            마우스를 click하면 여기 내용이
+            경고창(alert)으로 뜬데요~
+        </div>
+    
+        <h2>unbind() 메소드</h2>
+        
+        <input type="button" id="btnClick" value="난버튼" />
+        
+        <input type="button" id="btnEventClear" value="이벤트제거버튼" />
+</body>
+</html>

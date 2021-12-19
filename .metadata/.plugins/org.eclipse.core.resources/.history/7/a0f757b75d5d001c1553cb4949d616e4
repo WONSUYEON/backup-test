@@ -1,0 +1,55 @@
+package real.project;
+
+import java.io.IOException;
+import java.io.PrintWriter;
+
+import javax.servlet.ServletContext;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import org.json.simple.JSONObject;
+
+import membership.MemberDAO;
+import membership.MemberDTO;
+
+@WebServlet("/realproject/PostLogin.do")
+public class PostLogin extends HttpServlet{
+
+	@Override
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		String id = req.getParameter("user_id");
+		String pw = req.getParameter("user_pw");
+		
+		ServletContext application = this.getServletContext();
+		MemberDAO dao = new MemberDAO(application);
+		MemberDTO dto = dao.getMemberDTO(id, pw);
+		JSONObject json = new JSONObject();
+		
+		if(dto.getName()!=null) {
+			json.put("result", 1);
+			json.put("message", dto.getName()+"님, 로그인 성공입니다");
+			
+			String html = "";
+			html+="<table class='table table-bordered' style='width:300px;'>";
+			html+=" <tr>";
+			html+=" <td>"+dto.getName()+"회원님, 반갑습니다</td>";
+			html+=" </tr>";
+			html+=" </table>";
+			json.put("html", html);
+		}
+		else {
+			json.put("result", 0);
+			json.put("message", "로그인 실패입니다");
+		}
+		dao.close();
+		String jsonStr = json.toJSONString();
+		resp.setContentType("text/html;charset=UTF-8");
+		PrintWriter writer = resp.getWriter();
+		writer.println(jsonStr);
+		writer.close();
+		
+	}
+}

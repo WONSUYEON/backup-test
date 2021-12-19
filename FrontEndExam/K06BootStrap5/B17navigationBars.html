@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>B17navigationBars.html</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+<body>
+    <div class="container-fluid mt-3">   
+        <h3>Sticky Navbar</h3>
+        <p>네비바 상단에 스크롤되는 영역을 보여주고 싶을때 사용한다. Sticky를 사용할때만 필요한 영역.</p>
+    </div>
+    <!-- 
+        fixed-top
+            : 네비게이션 바를 상단에 고정하고 싶을때 사용하는 클래스.
+            단, 해당 클래스 사용시 네비게이션이 floating(플로팅)되어 기존 컨텐츠를
+            가리게 되므로 주의해야 한다. 
+        fixed-bottom
+            : 네비바를 하단에 고정한다. 
+        sticky-top 
+            : 네비바 상단에 스크롤되는 영역을 보여주고 싶을때 사용하는 클래스.
+            해당 영역까지 스크롤되면 네비바는 상단에 고정된다. 
+     -->
+    <nav class="navbar navbar-expand-sm bg-dark navbar-dark sticky-top">
+        <div class="container-fluid">
+            <!-- 네비링크 -->
+            <ul class="navbar-nav">            
+                <!-- 로고 
+                    이미지를 원형으로 만들고 싶다면 rounded-pill 클래스를 추가한다. 
+                -->
+                <a class="navbar-brand" href="#"><img src="https://www.ikosmo.co.kr/images/common/logo_center_v2.jpg" 
+                    class="rounded-pill" width="120"></a>
+    
+                <li class="nav-item">
+                    <a class="nav-link active" href="#">HOME</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">공지사항</a>
+                </li>
+                <!--  
+                    드롭다운 메뉴 추가하기
+                    -부모엘리먼트에 dropdown 클래스 추가
+                    -a태그에 dropdown-toggle 클래스 추가, data-bs-toggle="dropdown" 속성 추가
+                    -하위에 드롭다운 메뉴로 사용할 ul태그 추가
+                -->
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">상품구매하기</a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="#">휴대기기</a></li>
+                        <li><a class="dropdown-item" href="#">가전제품</a></li>
+                        <li><a class="dropdown-item" href="#">도서류</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link disabled" href="#">Disabled</a>
+                </li>
+    
+                <!-- 
+                검색폼 추가 
+                    ms-숫자 : m(Margin)s(Start:left)-숫자(1~5), 즉 좌측 마진을 설정한다. 
+                    me-숫자 : 위와 동일하고 우측 마친을 설정한다. 
+                ※ 부트스트랩만으로 정확한 위치나 사이즈를 맞출수 없을때는 별도의 style을 
+                사용해야 한다. 
+                -->
+                <form class="d-flex">
+                    <input class="form-control ms-3" type="text" placeholder="Search" 
+                        style="height:38px;margin-top:5px">
+                    <button class="btn btn-primary" type="button">Search</button>
+                </form>
+            </ul>
+        </div>
+    </nav>    
+    <!-- 
+        만약 네비바를 상단에 고정하고 싶다면 fixed-top 클래스를 추가하고
+        컨텐츠는 아래와 같이 상단 마진을 부여해야 한다. 
+     -->
+     <div class="container" style="margin-top:70px;">
+        <p>컨텐츠1</p><p>컨텐츠2</p><p>컨텐츠3</p><p>컨텐츠4</p><p>컨텐츠5</p><p>컨텐츠</p><p>컨텐츠</p>
+        <p>컨텐츠</p><p>컨텐츠</p><p>컨텐츠</p><p>컨텐츠</p><p>컨텐츠</p><p>컨텐츠</p><p>컨텐츠</p>
+        <p>컨텐츠</p><p>컨텐츠</p><p>컨텐츠</p><p>컨텐츠</p><p>컨텐츠</p><p>컨텐츠</p><p>컨텐츠</p>
+        <p>컨텐츠</p><p>컨텐츠</p><p>컨텐츠</p><p>컨텐츠</p><p>컨텐츠</p><p>컨텐츠</p><p>컨텐츠</p>
+        <p>컨텐츠</p><p>컨텐츠</p><p>컨텐츠</p><p>컨텐츠</p><p>컨텐츠</p><p>컨텐츠</p><p>컨텐츠</p>
+        <p>컨텐츠</p><p>컨텐츠</p><p>컨텐츠</p><p>컨텐츠</p><p>컨텐츠</p><p>컨텐츠</p><p>컨텐츠</p>
+        <p>컨텐츠</p><p>컨텐츠</p><p>컨텐츠</p><p>컨텐츠</p><p>컨텐츠</p><p>컨텐츠</p><p>컨텐츠</p>
+        <p>컨텐츠</p><p>컨텐츠</p><p>컨텐츠</p><p>컨텐츠</p><p>컨텐츠</p><p>컨텐츠</p><p>컨텐츠</p>
+        <p>컨텐츠</p><p>컨텐츠</p><p>컨텐츠</p><p>컨텐츠</p><p>컨텐츠</p><p>컨텐츠</p><p>컨텐츠</p>
+        <p>컨텐츠</p><p>컨텐츠</p><p>컨텐츠</p><p>컨텐츠</p><p>컨텐츠</p><p>컨텐츠</p><p>컨텐츠</p>
+        <p>컨텐츠</p><p>컨텐츠</p><p>컨텐츠</p><p>컨텐츠</p><p>컨텐츠</p><p>컨텐츠</p><p>컨텐츠</p>
+        <p>컨텐츠</p><p>컨텐츠</p><p>컨텐츠</p><p>컨텐츠</p><p>컨텐츠</p><p>컨텐츠</p><p>컨텐츠</p>
+        <p>컨텐츠</p><p>컨텐츠</p><p>컨텐츠</p><p>컨텐츠</p><p>컨텐츠</p><p>컨텐츠</p><p>컨텐츠</p>
+        <p>컨텐츠</p><p>컨텐츠</p><p>컨텐츠</p><p>컨텐츠</p><p>컨텐츠</p><p>컨텐츠</p><p>컨텐츠</p>
+    </div>    
+</body>
+</html>

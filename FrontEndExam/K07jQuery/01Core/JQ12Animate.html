@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JQ12Animate.html
+    </title>
+    <script src="../common/jquery/jquery-3.6.0.js"></script>
+    <script>
+        $(function(){
+            /*
+            animate(효과, 시간)
+                인자1 : 효과의 경우에는 여러개를 동시에 부여하기 위해
+                    JSON객체를 사용한다.
+                인자2 : 시간을 밀리세컨즈 단위 혹은 slow, fast와 같은 상수를 
+                    사용할 수 있다.
+            */
+           //좌측여백증가, 투명도는 흐리게, 높이 증가되어 우측으로 이동한다.
+            $('#go').click(function(){
+                $('div').animate({
+                    'left':'+=100px',
+                    opacity:0.2, //투명도 : 0에 가까울수록 흐려진다.
+                    height:'+=10px'}, 'slow');
+            });
+            $('#stop').click(function(){
+                $('div').stop();
+            });
+            $('#back').click(function(){
+                $('div').animate(
+                    {left:'-=100px', opacity:1, height:'-=10px'}
+                    , '2000'
+                );
+            });
+            $('#start').click(function(){
+                $('div').animate({height:'300px', opacity:'0.4'}, 'slow');
+                $('div').animate({width:'300px', opacity:'0.8'}, 'slow');
+                $('div').animate({height:'100px', opacity:'0.4'}, 'slow');
+                $('div').animate({width:'100px', opacity:'0.8'}, 'slow');
+            });
+        });
+        /*
+        애니메이션 효과에 대한 참조URL
+        https://www.w3schools.com/jquery/eff_animate.asp
+        */
+    </script>
+    <style>
+        div{
+            width: 70px; height: 70px; position: absolute;
+            top: 100px; left: 50px; background-color: red;
+        }
+    </style>
+</head>
+<body>
+    <h2>animate() / stop() 메소드</h2>
+	
+	<button id="go">Go</button>
+	<button id="stop">Stop</button>
+	<button id="back">Back</button>
+	<button id="start">Animation Start</button>
+	
+	<div>나는<br/>움직인다</div>
+
+</body>
+</html>

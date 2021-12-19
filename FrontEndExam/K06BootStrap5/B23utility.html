@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./bootstrap-5.1.3/css/bootstrap.css">
+    <script src="./bootstrap-5.1.3/js/bootstrap.bundle.js"></script>        
+    <style>
+        span {
+          display: inline-block;
+          width: 70px;height: 70px;
+          margin: 6px;
+          background-color: #fffeb2;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>Utility</h1>
+
+    <!-- jquery core CDN -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+        //Jquery의 Entry point(진입점) : 문서의 로드가 끝난 직후 동작한다. onload와 동일하다.
+        $(function(){
+            //alert("jQuery작동..OK?");
+            /*
+            CSS3에서 사용하는 Selector를 기반으로 엘리먼트를 선택한다. 
+            이벤트를 붙일때는 동일한 명칭의 함수를 사용한다.             
+            */
+            $('#vOn').click(function(){
+                //alert("보임처리 버튼 OK?");
+                //해당 엘리먼트에 클래스를 부여하거나 제거하는 함수를 호출한다. 
+                $('#showBox').removeClass('invisible');
+                $('#showBox').addClass('visible');
+                $('#showBox').addClass('p-5').addClass("bg-danger");
+            });
+            $('#vOff').click(function(){
+                //alert("숨김처리 버튼 OK?");
+                //메서드체인 : 메서드를 체인처럼 계속 연결해서 호출하는 기법을 말한다.
+                $('#showBox').removeClass('visible').removeClass("bg-warning").addClass("invisible");
+            });
+        });
+    </script>
+    <h1>Visibility(가시성)</h1>
+    <p>
+        엘리먼트를 보임/숨김 설정을 할수 있는 속성으로 숨김시 영역은 유지한다. 
+    </p>
+    <button type="button" id="vOn">보임처리</button> 
+    <button type="button" id="vOff">숨김처리</button>
+
+    <div class="visible bg-success">I am visible</div>
+    <div id="showBox" class="invisible bg-warning">I am invisible</div>
+
+
+    <h2>테두리</h2>
+    <span class="border"></span>
+    <span class="border border-0"></span>
+    <span class="border border-top-0"></span>
+    <span class="border border-right-0"></span>
+    <span class="border border-bottom-0"></span>
+    <span class="border border-left-0"></span>
+    <br>
+    <!-- 
+        방향 : top(상단), bottom(하단)
+            start(좌측), end(우측)
+     -->
+    <span class="border-top"></span>
+    <span class="border-end"></span>
+    <span class="border-bottom"></span>
+    <span class="border-start"></span>
+
+    <h2>테두리 두께</h2>
+    <!-- 
+        패딩, 마진과 같은 크기는 0~5까지 있음. 
+     -->
+    <span class="border border-1"></span>
+    <span class="border border-2"></span>
+    <span class="border border-3"></span>
+    <span class="border border-4"></span>
+    <span class="border border-5"></span>
+
+    <h2>테두리 컬러</h2>
+    <span class="border border-primary"></span>
+    <span class="border border-secondary"></span>
+    <span class="border border-success"></span>
+    <span class="border border-danger"></span>
+    <span class="border border-warning"></span>
+    <span class="border border-info"></span>
+    <span class="border border-light"></span>
+    <span class="border border-dark"></span>
+    <span class="border border-white"></span>
+
+
+    <h2>둥근 모서리</h2>
+    <span class="rounded bg-primary"></span>
+    <span class="rounded-circle bg-info"></span>
+    <span class="rounded-pill bg-success" style="width:130px"></span>
+    <span class="rounded-0 bg-danger"></span>
+    <span class="rounded-1 bg-danger"></span>
+    <span class="rounded-2 bg-danger"></span>
+    <span class="rounded-3 bg-danger"></span>
+
+    <h2>블럭엘리먼트의 가운데 정렬</h2>
+    <!-- 
+        mx-auto : 블럭엘리먼트의 가운데 정렬시 사용(div, li, p)
+        text-center : 인라인엘리먼트의 가운데 정렬시 사용(a, img, span)
+     -->
+    <div class="mx-auto bg-warning text-center" style="width:150px">
+        Centered
+    </div>
+
+
+    <h1>Spacing Utilities</h1>
+    <p>
+        {property}{sides}-{breakpoint}-{size}
+        <br>
+        {패딩or마진}{방향}-{모니터크기}-{0~5}
+    </p>
+    <p><pre>
+        m : margin(마진:바깥쪽간격)
+        p : padding(패딩:안쪽간격)
+
+        t : top, b : bottom, s : left, e : right
+        x : left 와 right 동시적용
+        y : top 과 bottom 동시적용
+        blnak : 아무것도 안주면 4방향 모두 적용
+
+        사이즈 : 0~5까지 사용가능. 0~3rem 으로 차등 적용됨
+
+        em과 rem 단위의 차이
+        : 둘다 웹브라우저에 적용된 기본사이즈에 따라 유연하게 변하는 가변 단위이다. 
+        em은 단계별 상위요소의 영향을 받는 반면, rem은 최상위 요소인 html를 기준으로
+        크기가 결정된다.  
+    </pre></p>
+    <div class="pt-4 bg-warning">I only have a top padding (1.5rem)</div>
+    <div class="p-5 bg-success">I have a padding on all sides (3rem)</div>
+    <div class="m-5 pb-5 bg-info">I have a margin on all sides (3rem) and a bottom padding (3rem)</div>
+
+
+    <h2>그림자 효과</h2>
+    <div class="shadow-none p-4 mb-4 bg-light">No shadow</div>
+    <div class="shadow-sm p-4 mb-4 bg-white">Small shadow</div>
+    <div class="shadow p-4 mb-4 bg-white">Default shadow</div>
+    <div class="shadow-lg p-4 mb-4 bg-white">Large shadow</div>
+
+
+    <h2>수직방향에서의 정렬</h2>
+    <div style="height:100px;" class="border border-3 mb-3">
+        <span class="align-baseline">baseline</span>
+        <span class="align-top">top</span>
+        <span class="align-middle">middle</span>
+        <span class="align-bottom">bottom</span>
+        <span class="align-text-top">text-top</span>
+        <span class="align-text-bottom" style="width:100px;">text-bottom</span>
+    </div>
+
+
+    <h2>동영상 비율(ratio)</h2>
+    <h3>Aspect ratio 1:1</h3>
+    <div class="ratio ratio-1x1">
+        <iframe src="https://www.youtube.com/embed/tgbNymZ7vqY"></iframe>
+    </div>
+
+    <h3>Aspect ratio 4:3</h3>
+    <div class="ratio ratio-4x3">
+        <iframe src="https://www.youtube.com/embed/tgbNymZ7vqY"></iframe>
+    </div>
+
+    <h3>Aspect ratio 16:9</h3>
+    <div class="ratio ratio-16x9">
+        <iframe src="https://www.youtube.com/embed/tgbNymZ7vqY"></iframe>
+    </div>
+
+    <h3>Aspect ratio 21:9</h3>
+    <div class="ratio ratio-21x9">
+        <iframe src="https://www.youtube.com/embed/tgbNymZ7vqY"></iframe>
+    </div>
+
+
+   
+</div>    
+</body>
+</html>

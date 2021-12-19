@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>B04text.html</title>
+    <link rel="stylesheet" href="./bootstrap-5.1.3/css/bootstrap.css">
+    <script src="./bootstrap-5.1.3/js/bootstrap.bundle.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h2>hn태그 사용</h2>
+        <p>
+            부트스트랩에서는 hn태그를 사용하는 대신 h1~h6까지의 클래스를 통해
+            동일한 텍스트 효과를 구현할 수 있다.
+        </p>
+        <h1>나는 h1태그를 사용 <small>나는 소제목1</small></h1>
+        <h3>나는 h3태그를 사용 <small>나는 소제목3</small></h3>
+        <h6>나는 h6태그를 사용 <small>나는 소제목6</small></h6>
+
+        <h2>p태그에 클래스 적용</h2>
+        <p class="h1">h1 Bootstrap heading</p>
+        <p class="h2">h2 Bootstrap heading</p>
+        <p class="h3">h3 Bootstrap heading</p>
+        <p class="h4">h4 Bootstrap heading</p>
+        <p class="h5">h5 Bootstrap heading</p>
+        <p class="h6">h6 Bootstrap heading</p>
+
+        <hr>
+        <h2>텍스트의 각종 효과</h2>
+        <p>
+            형광펜, 힌트, 키캡과 같은 효과를 사용할 수 있다.
+        </p>
+        <p>
+            형광펜효과 : Use the mark element (or the .mark class) to <mark>highlight</mark> text.
+        <br>
+        설명글 : The <abbr title="World Health Organization">WHO</abbr> was founded in 1948.
+        <br>
+        코드문자 표현 : The following HTML elements: <code>span</code>, <code>section</code>, and <code>div</code> defines a section in a document.
+        <br>
+        키캡(키보드) : Use <kbd>ctrl + p</kbd> to open the Print dialog box.
+        </p>
+        <hr>
+        <h2>BlockQuote : 강조효과</h2>
+
+        <blockquote class="blockquote">
+            <p>For 50 years, WWF has been protecting the future of nature. The world's leading conservation organization, WWF works in 100 countries and is supported by 1.2 million members in the United States and close to 5 million globally.</p>
+            <footer class="blockquote-footer">From WWF's website</footer>
+          </blockquote>
+
+        <hr>
+        <h2>정의목록</h2>
+        <dl>
+            <dt>제목 : Coffee</dt>
+            <dd>설명 - black hot drink</dd>
+            <dt>Milk</dt>
+            <dd>- white cold drink</dd>
+          </dl>     
+
+        <hr>
+        <h2>텍스트 정렬</h2>
+        <p class="text-left">Left-aligned text.</p>
+        <p class="text-end">Right-aligned text.</p>      
+        <p class="text-center">Center-aligned text.</p>
+        <p class="text-nowrap">No wrap text. No wrap text. No wrap text. No wrap text.</p>
+
+        <hr>
+        <h2>대소문자 변환</h2>
+        <p class="text-lowercase">Lowercased text.</p>
+        <p class="text-uppercase">Uppercased text.</p>      
+        <p class="text-capitalize">Capitalized text.</p>
+
+        <!-- 
+            참조url(공식문서)
+            https://getbootstrap.com/docs/5.1/utilities/text/
+         -->
+    
+    </div>    
+</body>
+</html>

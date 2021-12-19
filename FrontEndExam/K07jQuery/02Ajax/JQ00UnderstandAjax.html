@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JQ00UnderstandAjax.jsp</title>
+</head>
+<body>
+    <h2>Ajax 동작방식 이해하기</h2>
+<script>
+    function formSubmit(f){
+        f.method = "get";//전송방식 부여
+        f.target = "hiddenFrame";//타켓 설정
+        f.action = "./common/00Callback.html"//폼값을 
+        //f.submit();
+    }
+</script>
+
+<div id="callBackData">
+    콜백된 데이터는 여기에 출력합니다
+</div>
+<!-- submit 이벤트가 발생하면 form태그의 DOM을 전달한다. -->
+<form onsubmit="return formSubmit(this);">
+<input type="submit" value="폼값 전송하기">
+</form>
+<iframe name="hiddenFrame" 
+style="display:block; width: 300px; height: 300px;"
+></iframe>
+</body>
+</html>

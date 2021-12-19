@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JQ05OnOff.html
+    </title>
+    <script src="../common/jquery/jquery-3.6.0.js"></script>
+    <script>
+        /*
+        on() : 기본사용법은 bind()와 동일하며, 엘리먼트에 이벤트를 부여할때
+            사용한다. bind()와 다른 부분은 동적으로 생성된 엘리먼트에도
+            이벤트를 부여할 수 있다.
+        off() : on()으로 부여했던 이벤트를 제거할 때 사용한다.
+        */
+
+        $(document).ready(function(){
+            /*
+            문서가 로드가 완료되면 선택한 2개의 버튼에 각각 click이벤트를 
+            부여한다.
+            */
+            $("#onMethod").on("click", function(){
+                alert("#onMethod 버튼이 클릭되었습니다");
+            });
+            $("#offMethod").on("click", function(){
+                //on버튼의 클릭이벤트를 제거한다.
+                $('#onMethod').off("click");
+                alert("#onMethod click이벤트가 해제되었습니다");
+            });
+            //이 부분도 문서의 로드가 끝나면 즉시 실행된다.
+            $('#div1').on('click',function(){
+                alert('클릭이벤트 발생됨');
+                /*
+                after() : 선택한 엘리먼트의 다음에 인자로 전달되는 컨텐츠를 추가한다.
+                    #div1을 선택했으므로 그 다음에 아래의 div태그를 추가한다.
+                */
+                $(this).after("<div style='background-color:blue;'>동적으로 생성한 div</div>");
+            });
+            /*
+            div2클래스의 영역 하위에 있는 button을 선택해서 click이벤트를 부여한다
+            한칸띄우는건 하위선택자를 의미한다. 
+            append() : after()함수와 동일하게 선택된 요소 다음에 인수로 주어진
+                컨텐츠를 추가한다. 단 여기서는 ul태그 하위에 li태그가 추가된다.
+                (after()와는 약간의 차이가 있다.)
+            */
+            $(".div2 button").on("click", function(){
+                $(".div2 ul").append("<li>추가된 li 태그</li>");
+            });
+            /*
+            동적으로 생성한 (즉, 코드상으로는 존재하지 않는 엘리먼트) 엘리먼트에는
+            bind()를 통해서는 이벤트를 부여할 수 없으나, on()을 이용하면 이벤트를 
+            부여할 수 있다.
+
+            css() : JS의 style속성과 동일하게 해당 요소에 style을 부여한다.
+                속성을 기술하는 방식은 JS와 동일하다.
+            */
+            $(".div2").on("click", "li", function(){
+                //글자색과 글자크기를 변경한다.
+                $(this).css("color","skyblue").css("fontSize", "1.8em");
+            });
+        });
+    </script>
+    <style>
+        div{
+            width: 200px; height: 50px; margin: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h2>on() / off() 메소드</h2>
+	
+	<div id="div1" style="background-color:red;">
+		미리 생성한 div(요기를 눌러보삼)
+	</div>
+    <!--
+        위 div 부분을 클릭하면 아래의 코드가 동적으로 추가된다.
+         <div style='background-color:blue;'>동적으로 생성한 div</div>
+    -->
+
+    <button id="onMethod">on()메소드호출</button>
+	<button id="offMethod">off()메소드호출</button>
+	
+	<div class="div2">
+		<button>아이템추가하기</button>
+		<ul>
+			<li>기존아이템1</li>
+			<li>기존아이템2</li>
+		</ul>
+	</div>
+</body>
+</html>

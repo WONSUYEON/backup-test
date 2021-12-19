@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- 
+    뷰포트(Viewport)  
+    width=device-width
+        : 단말기(모바일장치)의 화면폭에 따라 페이지의 가로폭을 재 설정하게 해준다. 
+        디바이스에 따라 스케일이 달라지게 되는데 이것을 100% 스케일에서 CSS 픽셀들로
+        계산된 화면의 폭을 의미한다. 
+    initial-scale=1.0
+        : 페이지가 처음 브라우저에 로딩된 초기 줌(Zoom) 레벨을 지정한다. 
+        즉 초기확대값을 1로 설정한다. 
+     -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>B01getStartCore.html</title>
+    <!-- 
+        Bootstrap5를 사용하기 위한 
+        방법1 : core파일을 다운로드 하여 로컬에 저장하고 css, js파일을 로드한다. 
+     -->
+    <link rel="stylesheet" href="./bootstrap-5.1.3/css/bootstrap.css">
+    <script src="./bootstrap-5.1.3/js/bootstrap.bundle.js"></script>
+    <style>
+        div{
+            border: 2px solid blue;background-color: burlywood;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h3>container 영역</h3>
+</div>    
+<div class="container-fluid">
+    <h3>container-fluid 영역</h3>
+</div>
+</body>
+</html

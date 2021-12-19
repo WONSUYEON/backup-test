@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./bootstrap-5.1.3/css/bootstrap.css">
+    <script src="./bootstrap-5.1.3/js/bootstrap.bundle.js"></script>        
+</head>
+<body>
+<div class="container">
+    <h1>flex</h1>
+
+    <h2>방향설정</h2>
+    <!-- 
+        flex-row : 왼쪽방향이 출발점이 된다. 
+        flex-row-reverse : 오른쪽방향이 출발점이 된다. 
+     -->
+    <div class="d-flex flex-row bg-secondary">
+        <div class="p-2 bg-info">Flex item 1</div>
+        <div class="p-2 bg-warning">Flex item 2</div>
+        <div class="p-2 bg-primary">Flex item 3</div>
+    </div>
+    
+    <div class="d-flex flex-row-reverse bg-secondary">
+        <div class="p-2 bg-info">Flex item 1</div>
+        <div class="p-2 bg-warning">Flex item 2</div>
+        <div class="p-2 bg-primary">Flex item 3</div>
+    </div>
+
+    <h2>수직방향 설정</h2>
+    <div class="d-flex flex-column">
+        <div class="p-2 bg-info">Flex item 1</div>
+        <div class="p-2 bg-warning">Flex item 2</div>
+        <div class="p-2 bg-primary">Flex item 3</div>
+    </div>    
+    <div class="d-flex flex-column-reverse">
+        <div class="p-2 bg-info">Flex item 1</div>
+        <div class="p-2 bg-warning">Flex item 2</div>
+        <div class="p-2 bg-primary">Flex item 3</div>
+    </div>
+
+    <h2>박스 배분</h2>
+    <div class="d-flex justify-content-start bg-secondary mb-3">
+        <div class="p-2 bg-info">Flex item 1</div>
+        <div class="p-2 bg-warning">Flex item 2</div>
+        <div class="p-2 bg-primary">Flex item 3</div>
+    </div>
+    <div class="d-flex justify-content-end bg-secondary mb-3">
+        <div class="p-2 bg-info">Flex item 1</div>
+        <div class="p-2 bg-warning">Flex item 2</div>
+        <div class="p-2 bg-primary">Flex item 3</div>
+    </div>
+    <div class="d-flex justify-content-center bg-secondary mb-3">
+        <div class="p-2 bg-info">Flex item 1</div>
+        <div class="p-2 bg-warning">Flex item 2</div>
+        <div class="p-2 bg-primary">Flex item 3</div>
+    </div>
+    <div class="d-flex justify-content-between bg-secondary mb-3">
+        <div class="p-2 bg-info">Flex item 1</div>
+        <div class="p-2 bg-warning">Flex item 2</div>
+        <div class="p-2 bg-primary">Flex item 3</div>
+    </div>
+
+    <h2>동일한 크기로 블럭만들기</h2>
+    <div class="d-flex">
+        <div class="p-2 bg-info flex-fill">Flex item 1</div>
+        <div class="p-2 bg-warning flex-fill">Flex item 2</div>
+        <div class="p-2 bg-primary flex-fill">Flex item 3</div>
+    </div>
+    <h2>블럭에 가중치 부여하기</h2>
+    <div class="d-flex">
+        <div class="p-2 bg-info">Flex item 1</div>
+        <div class="p-2 bg-warning">Flex item 2</div>
+        <div class="p-2 bg-primary flex-grow-1">Flex item 3</div>
+    </div>
+
+
+    <h2>자동 마진 설정</h2>
+    <!-- 
+        ms-auto : margin start auto 즉 왼쪽에 마진을 auto로 설정하여
+            엘리먼트를 오른쪽으로 밀어 정렬한다. 
+     -->
+    <div class="d-flex bg-secondary">
+        <div class="p-2 ms-auto bg-info">Flex item 1</div>
+        <div class="p-2 bg-warning">Flex item 2</div>
+        <div class="p-2 bg-primary">Flex item 3</div>
+    </div>
+    <!-- 
+        me-auto : margin end auto 즉 오른쪽에 마진을 auto로 설정하여
+            엘리먼트를 좌측으로 밀어 정렬한다. 
+     -->
+    <div class="d-flex bg-secondary">
+        <div class="p-2 bg-info">Flex item 1</div>
+        <div class="p-2 bg-warning">Flex item 2</div>
+        <div class="p-2 me-auto bg-primary">Flex item 3</div>
+    </div>
+
+
+</div>   
+</body>
+</html>

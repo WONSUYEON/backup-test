@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JQ09NextPrev.html
+    </title>
+    <script src="../common/jquery/jquery-3.6.0.js"></script>
+    <script>
+        /*
+        prev() : 선택한 엘리먼트의 이전 엘리먼트를 선택한다.
+        next() : 다음 엘리먼트를 선택한다.
+        */
+        $(function(){
+            //button태그 중 id가 next인 엘리먼트
+            $('button#next').click(function(){
+                //HTML요소의 배경색 변경
+                $('li.third').prev().css("backgroundColor","blue");
+                //jQuery요소의 폰트크기 변경
+                $('li.third').next().css("fontSize","2em");
+            });
+            //이전 버튼 클릭시의 효과
+            $('button#prev').click(function(){
+                $('li.third').prev().css("backgroundColor","yellow");
+                $('li.third').next().css("fontSize","1.2em");
+            });
+
+            /*
+            eq() : 선택한 요소가 2개이상일때 인덱스를 통해 엘리먼트를 
+                얻어오는 메소드로 인덱스는 0부터 시작한다.
+            */
+
+            var i=0;
+            var size = $("li").length;//li태그의 갯수
+            $('button#continue').click(function(){
+                //현재 선택된 이전 요소의 배경을 흰색으로 변경한다.
+                $('li').eq(i).prev().css('backgroundColor','white');
+                //현재 선택된 요소의 배경을 노란색으로 변경한다.
+                $('li').eq(i).css('backgroundColor','yellow');
+
+                //i값이 0이라면 이전 요소가 없으므로 마지막 요소를 선택하여 배경색을 변경한다.
+                if(i==0){
+                    //4번 인덱스를 선택한다.
+                    $('li').eq(size-1).css('backgroundColor','white');
+                }
+                /*
+                li요소의 끝까지 index가 증가하면 처음으로 되돌리기 위해 0으로 초기화한다.
+                */
+
+                if(size-1 == i){
+                    //i값이 4가되면 다시 0으로 초기화한다.
+                    i=0;
+                }
+                else{
+                    //그 외에는 1증가한다.
+                    i++;
+                }
+            });
+        });
+    </script>
+</head>
+<body>
+    <h2>next() / prev() 메소드</h2>
+	
+	<button id="next">JSP의 다음요소 얻어오기</button>
+	<button id="prev">JSP의 이전요소 얻어오기</button>
+	<button id="continue">연속해서 배경색 바꾸기</button>
+	
+	<ul>
+		<li>JAVA</li> 0번인덱스
+		<li>HTML5</li>
+		<li class="third">JSP->여기가third</li>
+		<li>jQuery</li>
+		<li>Spring</li> 4번인덱스
+	</ul>
+
+</body>
+</html>

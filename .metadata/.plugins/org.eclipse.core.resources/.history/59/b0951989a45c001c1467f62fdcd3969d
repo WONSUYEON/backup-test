@@ -1,0 +1,54 @@
+package servlet;
+
+import java.io.IOException;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+/*
+ 어노테이션을 통한 요청명 매핑. *를 통해 여러 요청명을 한번에
+ 매핑 처리한다. 즉, .one으로 끝나는 모든 요청명에 대해 매핑처리하였다.
+ */
+@WebServlet(".one")
+public class FrontController extends HttpServlet {
+ @Override
+protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+	 
+	String uri = req.getRequestURI();
+	System.out.println(uri);
+	int lastSlash = uri.lastIndexOf("/");
+	String commandStr = uri.substring(lastSlash);
+
+	if (commandStr.equals("/regist.one"))
+		registFunc(req);
+	else if (commandStr.equals("/login.one"))
+		loginFunc(req);
+	else if (commandStr.equals("/freeboard.one"))
+		freeboardFunc(req);
+	
+	req.setAttribute("uri", uri);
+	req.setAttribute("commandStr", commandStr);
+	req.getRequestDispatcher("/13Servlet/FrontController.jsp").forward(req, resp);
+ }
+ private void freeboardFunc(HttpServletRequest req) {
+	// TODO Auto-generated method stub
+	
+}
+private void loginFunc(HttpServletRequest req) {
+	// TODO Auto-generated method stub
+	
+}
+//페이지별 처리 메소드
+ 
+ void registFunc(HttpServletRequest req) {
+	 req.setAttribute("resultValue", "<h4>회원가입</h4>");
+ }
+ void loginFunc(HttpServletRequest req) {
+	 req.setAttribute("resultValue", "<h4>로그인</h4>");
+ }
+ void freeboardFunc(HttpServletRequest req) {
+	 req.setAttribute("resultValue", "<h4>자유게시판</h4>");
+ }
+}
